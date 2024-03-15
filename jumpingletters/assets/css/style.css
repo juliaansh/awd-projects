@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    background: linear-gradient(45deg, #141411, #141411); /* Linear gradient background */
+}
+
+.letters {
+    perspective: 1000px;
+    color: rgb(232, 117, 133)
+}
+
+.letters .letter:nth-child(n+7):nth-child(-n+11) {
+    color: #fb7064; /* Change to your desired color */
+}
+
+.letter {
+    overflow: hidden;
+    display: inline-block;
+    user-select: none;
+    line-height: 0.8;
+    font-size: 5rem;
+}
+
+.letter.active {
+    animation: jump 2s ease-in-out;
+    animation-fill-mode: backwards;
+    transform-origin: bottom left;
+}
+
+@keyframes jump {
+    0% {
+        transform: translate(0, 0) rotate(100deg);
+    }
+    25% {
+        transform: scale(1) translate(0, -150px);
+    }
+    75% {
+        transform: scale(2, 1) translate(0, 200px);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
